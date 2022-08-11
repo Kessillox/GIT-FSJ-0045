@@ -16,7 +16,7 @@ public class Main {
 		do {
 			opcion = menuPrincipal();
 			accionesMenuPrincipal(opcion);
-		}while(opcion != 4);
+		}while(opcion != 6);
 	}
 	
 	
@@ -28,11 +28,14 @@ public class Main {
 			System.out.println("1) Ingresar al menu de alumnos.");
 			System.out.println("2) Ingresar al menu de profesores.");
 			System.out.println("3) Listar a todos los registrados.");
-			System.out.println("4) Salir.");
+			System.out.println("4) Exportar lista de todos los registrados.");
+			System.out.println("5) Importar lista nueva.");
+			System.out.println("6) Salir.");
+			
 			opcion = Integer.parseInt(bReader.readLine());
 			
-			if(opcion >4 || opcion < 0)System.out.println("Ingrese un numero valido para seleccionar la operacion.");
-		}while(opcion >4 || opcion < 0);
+			if(opcion >6 || opcion < 0)System.out.println("Ingrese un numero valido para seleccionar la operacion.");
+		}while(opcion >6 || opcion < 0);
 		
 		return opcion;
 	}
@@ -44,13 +47,15 @@ public class Main {
 			System.out.println("2) Editar un alumno.");
 			System.out.println("3) Eliminar un alumno.");
 			System.out.println("4) Listar a los alumnos.");
-			System.out.println("5) Mostrar promedio de los alumnos.");
-			System.out.println("6) Atras.");
+			System.out.println("5) Exportar lista alumnos.");
+			System.out.println("6) Importar lista alumnos");
+			System.out.println("7) Mostrar promedio de los alumnos.");
+			System.out.println("8) Atras.");
 			String op=bReader.readLine();
 			opcion = Integer.parseInt(op);
 			
-			if(opcion >6 || opcion < 0)System.out.println("Ingrese un numero valido para seleccionar la operacion.");
-		}while(opcion >6 || opcion < 0);
+			if(opcion >8 || opcion < 0)System.out.println("Ingrese un numero valido para seleccionar la operacion.");
+		}while(opcion >8 || opcion < 0);
 		return opcion;
 	}
 	
@@ -61,9 +66,11 @@ public class Main {
 			System.out.println("2) Editar un profesor.");
 			System.out.println("3) Eliminar un profesor.");
 			System.out.println("4) Listar a los profesores.");
-			System.out.println("5) Atras.");
+			System.out.println("5) Exportar lista profesores.");
+			System.out.println("6) Importar lista profresores.");
+			System.out.println("7) Atras.");
 			opcion = Integer.parseInt(bReader.readLine());
-		}while(opcion >5 || opcion < 0);
+		}while(opcion >7 || opcion < 0);
 		return opcion;
 	}
 	
@@ -88,8 +95,16 @@ public class Main {
 				System.out.println("Lista de todas las personas en el registro:\n");
 				break;
 				
-			//Salir
+			//Exportar lista	
 			case 4:
+				System.out.println("Su lista ha sido exportada con éxito.");
+				
+			//Importar lista	
+			case 5:
+				System.out.println("Su lista ha sido importada con éxito. ");
+				
+			//Salir	
+			case 6:
 				System.out.println("Usted ha salido del programa.");
 				break;
 		}
