@@ -4,6 +4,7 @@ import cl.infoclub.fsj.GIT.modelo.Persona;
 
 public interface IPersona {
 
+	
 	void crear(Persona persona);
 	
 	void listar();
