@@ -61,7 +61,7 @@ public class Main {
 	
 	public static int menuProfesores() throws NumberFormatException, IOException {
 		do {
-			System.out.println("\nMenu de Profesores.\n(Ingrese un numero valido para seleccionar la operacion)\n");
+			System.out.println("\nMenu de Profesores.\n");
 			System.out.println("1) Agregar un profesor.");
 			System.out.println("2) Editar un profesor.");
 			System.out.println("3) Eliminar un profesor.");
@@ -70,6 +70,7 @@ public class Main {
 			System.out.println("6) Importar lista profresores.");
 			System.out.println("7) Atras.");
 			opcion = Integer.parseInt(bReader.readLine());
+			if(opcion >8 || opcion < 0)System.out.println("Ingrese un numero valido para seleccionar la operacion.");
 		}while(opcion >7 || opcion < 0);
 		return opcion;
 	}
@@ -98,11 +99,11 @@ public class Main {
 			//Exportar lista	
 			case 4:
 				System.out.println("Su lista ha sido exportada con éxito.");
-				
+				break;
 			//Importar lista	
 			case 5:
 				System.out.println("Su lista ha sido importada con éxito. ");
-				
+				break;
 			//Salir	
 			case 6:
 				System.out.println("Usted ha salido del programa.");
@@ -115,27 +116,36 @@ public class Main {
 		
 		switch(opcion) {
 			case 1://Agregar alumno
-				
+				opcion = menuAlumnos();
 				break;
 				
 			case 2://Editar alumno
-				
+				opcion = menuAlumnos();
 				break;
 				
 			case 3://Eliminar alumno
-				
+				opcion = menuAlumnos();
 				break;
 				
 			case 4://Listar alumnos
-				
+				opcion = menuAlumnos();
 				break;
 				
-			case 5://Promedio alumnos
-				
+			case 5://Exportar alumnos
+				System.out.println("Su lista ha sido exportada con éxito.");
+				opcion = menuAlumnos();
 				break;
 				
-			case 6://Atras
+			case 6://Importar alumnos
+				System.out.println("Su lista ha sido importada con éxito. ");
+				opcion = menuAlumnos();
+				break;	
 				
+			case 7://Promedio alumnos
+				opcion = menuAlumnos();
+				break;
+				
+			case 8://Atras
 				opcion = 0;
 				break;
 		}
@@ -144,24 +154,35 @@ public class Main {
 	public static void accionesMenuProfesores(int opcion) throws NumberFormatException, IOException {
 		switch(opcion) {
 			case 1://Agregar profesor
-				
+				opcion = menuProfesores();
 				break;
 				
 			case 2://Editar profesor
-				
+				opcion = menuProfesores();
 				break;
 				
 			case 3://Eliminar profesor
-				
+				opcion = menuProfesores();
 				break;
 				
 			case 4://Listar profesores
-				
+				opcion = menuProfesores();
 				break;
 				
-			case 5://Atras
+			case 5://Exportar profesores
+				System.out.println("Su lista ha sido exportada con éxito.");
+				opcion = menuProfesores();
+				break;
+				
+			case 6://Importar profesores
+				System.out.println("Su lista ha sido importada con éxito. ");
+				opcion = menuProfesores();
+				break;
+				
+			case 7://Atras
 				opcion = 0;
 				break;
+				
 		}
 	}
 }
