@@ -5,7 +5,6 @@ import java.util.ArrayList;
 public class Alumno extends Persona {
 
 	private ArrayList<Double> listaNotas = new ArrayList<>();
-	
 	private int numeroLista;
 	private String curso;
 	
