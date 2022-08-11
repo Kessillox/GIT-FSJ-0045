@@ -1,53 +1,42 @@
 package cl.infoclub.fsj.GIT.repositorios;
 
 import java.util.ArrayList;
-import java.util.Collection;
 
 import cl.infoclub.fsj.GIT.interfaces.IProfesor;
 import cl.infoclub.fsj.GIT.modelo.Profesor;
 
-public class ProfesorRepo implements IProfesor {
+public abstract class ProfesorRepo implements IProfesor {
 	
 	
-	ArrayList<String> listarProfesor = new ArrayList<>();
+	ArrayList<Profesor> Profesor = new ArrayList<Profesor>();
 	
 	
+	public ArrayList<Profesor> getProfesor() {
+		return Profesor;
+	}
 
-	@Override
-	public void crear(Profesor profesor) {
+	public void setProfesor(ArrayList<Profesor> profesor) {
+		Profesor = profesor;
+	}
+
+
+	public void crear (Profesor pr) {
+		this.Profesor.add(pr);
 		
+	}
 	
-		}
-	
-	
-
-	@Override
 	public void listar() {
-		
+		for (int i= 0;i<Profesor.size();i++) {
+				System.out.println(getProfesor().get(i));
+			
 		}
-		
-		
-		
+	}
 	
-		
-	
+	public void actualizar (Profesor profesor) {
 
-	@Override
-	public void actualizar(Profesor profesor) {
 		
 	}
-
-	
-	@Override
 	public void eliminar(Profesor profesor) {
-		
-	
-		
 	}
 
-		
-	
-
-	
 }
-	
