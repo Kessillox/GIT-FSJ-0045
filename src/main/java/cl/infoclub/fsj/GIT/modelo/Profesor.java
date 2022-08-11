@@ -5,6 +5,7 @@ public class Profesor extends Persona {
 	private String asignatura;
 	private String nivel;
 	private int horasDeClase;
+	
 	public Profesor(String asignatura, String nivel, int horasDeClase) {
 		super();
 		this.asignatura = asignatura;
