@@ -121,7 +121,7 @@ public class Main {
 				
 			case 6://Atras
 				
-				opcion = menuPrincipal();
+				opcion = 0;
 				break;
 		}
 	}
@@ -145,7 +145,7 @@ public class Main {
 				break;
 				
 			case 5://Atras
-				opcion = menuPrincipal();
+				opcion = 0;
 				break;
 		}
 	}
