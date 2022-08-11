@@ -1,6 +1,8 @@
 package cl.infoclub.fsj.GIT.modelo;
 
+
 import java.util.ArrayList;
+
 
 public class Alumno extends Persona {
 
