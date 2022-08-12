@@ -1,24 +1,23 @@
 package cl.infoclub.fsj.GIT.modelo;
 
+import java.util.ArrayList;
+
 public class Alumno extends Persona {
 
-	private double nota;
+	private ArrayList<Double> listaNotas = new ArrayList<>();
+	
 	private int numeroLista;
 	private String curso;
-	public Alumno(double nota, int numeroLista, String curso) {
+	
+	public Alumno( int numeroLista, String curso) {
 		super();
-		this.nota = nota;
 		this.numeroLista = numeroLista;
 		this.curso = curso;
+		
 	}
 	public Alumno() {
 		super();
-	}
-	public double getNota() {
-		return nota;
-	}
-	public void setNota(double nota) {
-		this.nota = nota;
+		
 	}
 	public int getNumeroLista() {
 		return numeroLista;
@@ -34,9 +33,18 @@ public class Alumno extends Persona {
 	}
 	@Override
 	public String toString() {
-		return "Alumno [nota=" + nota + ", numeroLista=" + numeroLista + ", curso=" + curso + "]";
+		return "Alumno [numeroLista=" + numeroLista + ", curso=" + curso + "]";
 	}
 	
+	public void addNota(double notaAdd) {
+		this.listaNotas.add(notaAdd);
+	}
 	
+	public void getNota(int posNota) {
+		this.listaNotas.get(posNota);
+	}
 	
+	public int getSizeNotas () {
+		return this.listaNotas.size();
+	}
 }
