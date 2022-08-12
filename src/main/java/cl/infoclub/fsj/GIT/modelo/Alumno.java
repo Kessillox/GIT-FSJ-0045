@@ -40,6 +40,10 @@ public class Alumno extends Persona {
 		this.listaNotas.add(notaAdd);
 	}
 	
+	public void actualizarNota(int index, double notaUpdate) {
+		this.listaNotas.set(index, notaUpdate);
+	}
+	
 	public void getNota(int posNota) {
 		this.listaNotas.get(posNota);
 	}
