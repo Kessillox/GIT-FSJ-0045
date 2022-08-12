@@ -28,8 +28,8 @@ public class Curso {
 		return this.listaProfesores.size();
 	}
 	
-	public void removeProfesor(Profesor p) {
-		this.listaProfesores.remove(p);
+	public void removeProfesor(int index) {
+		this.listaProfesores.remove(index);
 	}
 	
 	public void addAlumno(Alumno p) {
@@ -48,7 +48,9 @@ public class Curso {
 		return this.listaAlumnos.size();
 	}
 	
-	public void removeAlumno(Profesor p) {
-		this.listaAlumnos.remove(p);
+	public void removeAlumno(int index) {
+		this.listaAlumnos.remove(index);
 	}
+	
+	
 }
