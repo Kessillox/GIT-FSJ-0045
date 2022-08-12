@@ -20,6 +20,10 @@ public class Curso {
 		this.listaProfesores.get(index);
 	}
 	
+	public void actualizarProfesor(int index, Profesor p) {
+		this.listaProfesores.set(index, p);
+	}
+	
 	public int sizeProfesor() {
 		return this.listaProfesores.size();
 	}
@@ -30,6 +34,10 @@ public class Curso {
 	
 	public void addAlumno(Alumno p) {
 		this.listaAlumnos.add(p);
+	}
+	
+	public void actualizarAlumno(int index, Alumno p) {
+		this.listaAlumnos.set(index, p);
 	}
 	
 	public void getAlumno(int index) {
