@@ -6,7 +6,7 @@ public interface IProfesor {
 
 	void crear(Profesor profesor);
 	
-	void listar();
+	void listarProfesores();
 	
 	void actualizar(Profesor profesor);
 	
