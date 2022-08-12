@@ -27,4 +27,20 @@ public class Curso {
 	public void removeProfesor(Profesor p) {
 		this.listaProfesores.remove(p);
 	}
+	
+	public void addAlumno(Alumno p) {
+		this.listaAlumnos.add(p);
+	}
+	
+	public void getAlumno(int index) {
+		this.listaAlumnos.get(index);
+	}
+	
+	public int sizeAlumno() {
+		return this.listaAlumnos.size();
+	}
+	
+	public void removeAlumno(Profesor p) {
+		this.listaAlumnos.remove(p);
+	}
 }
