@@ -6,36 +6,20 @@ public class Alumno extends Persona {
 
 	private ArrayList<Double> listaNotas = new ArrayList<>();
 	
-	private int numeroLista;
-	private String curso;
-	
-	public Alumno( int numeroLista, String curso) {
-		super();
-		this.numeroLista = numeroLista;
-		this.curso = curso;
-		
-	}
 	public Alumno() {
 		super();
 		
 	}
-	public int getNumeroLista() {
-		return numeroLista;
-	}
-	public void setNumeroLista(int numeroLista) {
-		this.numeroLista = numeroLista;
-	}
-	public String getCurso() {
-		return curso;
-	}
-	public void setCurso(String curso) {
-		this.curso = curso;
-	}
+	
 	@Override
 	public String toString() {
-		return "Alumno [numeroLista=" + numeroLista + ", curso=" + curso + "]";
+		return "Alumno [getNombre()=" + getNombre() + ", getApellido1()=" + getApellido1() + ", getApellido2()="
+				+ getApellido2() + ", getEdad()=" + getEdad() + ", getRut()=" + getRut() + ", toString()="
+				+ super.toString() + ", getClass()=" + getClass() + ", hashCode()=" + hashCode() + "]";
 	}
-	
+
+
+
 	public void addNota(double notaAdd) {
 		this.listaNotas.add(notaAdd);
 	}

@@ -51,6 +51,4 @@ public class Curso {
 	public void removeAlumno(int index) {
 		this.listaAlumnos.remove(index);
 	}
-	
-	
 }
