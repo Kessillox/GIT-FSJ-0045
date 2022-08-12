@@ -11,6 +11,10 @@ public class Alumno extends Persona {
 		
 	}
 	
+	private ArrayList<Double> getListaAlumnos() {
+		return this.listaNotas;
+	}
+	
 	@Override
 	public String toString() {
 		return "Alumno [getNombre()=" + getNombre() + ", getApellido1()=" + getApellido1() + ", getApellido2()="
