@@ -6,7 +6,7 @@ public interface IAlumno {
 
 	void crear(Alumno alumno);
 	
-	void listar();
+	void listarAlumnos();
 	
 	void actualizar(Alumno alumno);
 	
