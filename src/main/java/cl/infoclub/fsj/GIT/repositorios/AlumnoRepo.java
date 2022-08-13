@@ -25,14 +25,16 @@ public class AlumnoRepo implements IAlumno {
 	}
 	
 	
-	public void listarAlumnos(ArrayList<Alumno> alumnos) {
+	public String listarAlumnos(ArrayList<Alumno> alumnos) {
 		System.out.println("La lista de alumnos es: \n");
 		for (Alumno auxAlumno:alumnos) {
 				System.out.println(auxAlumno.alumnoToString());
 				System.out.println(listarNotas(auxAlumno.getListaNotas()));
 				System.out.println("Promedio: "+promedio(auxAlumno.getListaNotas()));
 		}
-		
+		if(alumnos.isEmpty())
+			return "No hay alumnos para listar";
+		return "Lista mostrada exitosamente";
 	}
 	///*edit actualizar*/
 	public String actualizar(String rut, ArrayList<Alumno> alumnos) throws IOException {

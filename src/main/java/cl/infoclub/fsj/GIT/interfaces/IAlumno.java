@@ -13,7 +13,7 @@ public interface IAlumno {
 	
 	String actualizar(String rut, ArrayList<Alumno> alumnos) throws IOException ;
 	
-	void listarAlumnos(ArrayList<Alumno> alumnos);
+	String listarAlumnos(ArrayList<Alumno> alumnos);
 
 	double promedio(ArrayList<Double> notas );
 	

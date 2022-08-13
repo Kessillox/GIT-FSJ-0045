@@ -27,11 +27,11 @@ public class Curso {
 	}
 	
 	
-	private ArrayList<Profesor> getListaProfesores(){
+	public ArrayList<Profesor> getListaProfesores(){
 		return this.listaProfesores;
 	}
 	
-	private ArrayList<Alumno> getListaAlumnos(){
+	public ArrayList<Alumno> getListaAlumnos(){
 		return this.listaAlumnos;
 	}
 	
@@ -76,8 +76,8 @@ public class Curso {
 		return ar.eliminar(rut, listaAlumnos);
 	}
 	
-	public void listarAlumnos() {
-		ar.listarAlumnos(listaAlumnos);
+	public String listarAlumnos() {
+		return ar.listarAlumnos(listaAlumnos);
 		
 	}
 	

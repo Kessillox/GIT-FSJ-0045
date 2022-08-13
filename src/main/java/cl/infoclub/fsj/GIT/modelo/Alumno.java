@@ -17,6 +17,9 @@ public class Alumno extends Persona {
 		super(nombre, apellido1, apellido2, edad, rut);
 		this.listaNotas = listaNotas;
 	}
+	public Alumno(String nombre, String apellido1, String apellido2, int edad, String rut) {
+		super(nombre, apellido1, apellido2, edad, rut);
+	}
 	
 	
 	public ArrayList<Double> getListaNotas() {
