@@ -124,12 +124,7 @@ public class AlumnoRepo implements IAlumno {
 						escrituraTex.newLine();
 						escrituraTex.write("Apellido 2: " + alumno.getApellido2());
 						escrituraTex.newLine();
-						escrituraTex.write("Edad: " + alumno.getEdad());
-						escrituraTex.newLine();
-						escrituraTex.write("Rut: " + alumno.getRut());
-						escrituraTex.newLine();
-						escrituraTex.write("Notas del Alumno son: " + alumno.getListaNotas());
-						
+						escrituraTex.write("Las Notas del Alumno son: " + alumno.getListaNotas());
 						escrituraTex.newLine();						
 				}
 			} catch (IOException e) {
