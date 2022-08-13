@@ -17,7 +17,17 @@ public class Alumno extends Persona {
 	}
 	public Alumno() {
 		super();
+<<<<<<< HEAD
 		
+=======
+	}
+	
+	public double getNota() {
+		return nota;
+	}
+	public void setNota(double nota) {
+		this.nota = nota;
+>>>>>>> eqin2
 	}
 	public int getNumeroLista() {
 		return numeroLista;
