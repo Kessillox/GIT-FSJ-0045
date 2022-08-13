@@ -67,7 +67,6 @@ public class AlumnoRepo implements IAlumno {
 						alumno.setRut(bufferedReader.readLine());
 						break;	
 				}
-				//System.out.println("el nuevo alumno es:\n"+ alumno.toString());
 				System.out.println("El nuevo alumno es:" +alumno.toString()) ;
 					
 				}
@@ -89,12 +88,17 @@ public class AlumnoRepo implements IAlumno {
 		return "No se elimino al Alumno por no encontrarse en la lista";
 		
 	}
-	public double promedio(double nota1, double nota2, double nota3) {
-		double promedio = 0;
-		promedio = (nota1+nota2 + nota3)/3; 
-		return promedio;
-	}
-	/***inicio exportar***/
+	public double promedio(ArrayList<Double> notas ) {
+		Double sumaNotas=0.0;
+		
+		for(Double nota:notas) {
+			sumaNotas=+nota;
+		}
+		return sumaNotas/notas.size();
+	}	
+
+
+	/*
 	public void exportar(Alumno alumno) {
 		
 		System.out.println("Ingrese la ruta donde desea guardar el archivo .TXT");
@@ -132,10 +136,12 @@ public class AlumnoRepo implements IAlumno {
 			}
 			
 			}
-		}/***fin exportar****/
+		}
+	
 	public int nombreDocumento(int min, int max) {
 		return this.min;
 	}
+	*/
 	
 }
 
