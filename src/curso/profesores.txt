@@ -1,0 +1,4 @@
+Lista de profesores
+
+Persona [nombre=Felipe, apellido1=Kessi, apellido2=Bustos, edad=31, rut=abc123]
+Persona [nombre=Cristian, apellido1=Padilla, apellido2=Vargas, edad=10, rut=xd123]

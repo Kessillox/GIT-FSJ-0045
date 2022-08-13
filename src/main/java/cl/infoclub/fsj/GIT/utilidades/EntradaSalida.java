@@ -42,7 +42,7 @@ public class EntradaSalida {
 		String mensajeExito = "Lista de alumnos guardada exitosamente";
  
 		for (Alumno alumno: alumnos) {
-			contenido  = contenido + alumno.toString() + "\n";
+			contenido  = contenido + alumno.alumnoToString() + "\n";
 		}
  
  
@@ -76,7 +76,7 @@ public class EntradaSalida {
 		String mensajeExito = "Lista de profesores guardada exitosamente";
  
 		for (Profesor profesor: profesores) {
-			contenido  = contenido + profesor.toString() + "\n";
+			contenido  = contenido + profesor.profesorToString() + "\n";
 		}
  
 		if (!dir.exists()) {
