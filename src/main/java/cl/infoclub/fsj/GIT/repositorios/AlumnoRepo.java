@@ -12,10 +12,6 @@ import cl.infoclub.fsj.GIT.interfaces.IAlumno;
 import cl.infoclub.fsj.GIT.modelo.Alumno;
 
 public class AlumnoRepo implements IAlumno {
-
-	//ArrayList<Alumno> alumnosLista = new ArrayList<Alumno>();
-	Alumno alumnos = new Alumno();
-	private int min;
 	
 	public String crear (Alumno al,ArrayList<Alumno> alumnos) {
 		for(Alumno auxAlumno:alumnos) {//TODO
@@ -97,51 +93,6 @@ public class AlumnoRepo implements IAlumno {
 		return sumaNotas/notas.size();
 	}	
 
-
-	/*
-	public void exportar(Alumno alumno) {
-		
-		System.out.println("Ingrese la ruta donde desea guardar el archivo .TXT");
-		Scanner sc = new Scanner (System.in);
-		String directo = sc.next();
-		//File directorio = new File(directo);
-	    File directorio = new File("src/test/java");
-		
-		File documento = new File(directo+"/alumnos"+ nombreDocumento(0,10)+".txt");
-		if (directorio.mkdir()) {
-			if (directorio.exists()) {
-				System.out.println("Carpeta creada");
-			}
-		}else {
-		System.out.println("Carpeta creada con anterioridad");
-		}
-		
-		if (documento.exists()==false) {
-			try {
-				documento.createNewFile();
-				System.out.println("Archivo creado");
-				FileWriter escritura = new FileWriter(documento);
-				try (BufferedWriter escrituraTex= new BufferedWriter(escritura)) {
-						escrituraTex.write("Nombre del alumno: " + alumno.getNombre());
-						escrituraTex.newLine();
-						escrituraTex.write("Apellido 1: " + alumno.getApellido1());
-						escrituraTex.newLine();
-						escrituraTex.write("Apellido 2: " + alumno.getApellido2());
-						escrituraTex.newLine();
-						escrituraTex.write("Las Notas del Alumno son: " + alumno.getListaNotas());
-						escrituraTex.newLine();						
-				}
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			}
-		}
-	
-	public int nombreDocumento(int min, int max) {
-		return this.min;
-	}
-	*/
 	
 }
 

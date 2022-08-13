@@ -6,12 +6,13 @@ import java.io.InputStreamReader;
 import java.util.Scanner;
 
 import cl.infoclub.fsj.GIT.modelo.Alumno;
+import cl.infoclub.fsj.GIT.modelo.Curso;
 
 public class Main {
 	
 	static BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
 	static int opcion;
-	
+	static Curso curso;
 	
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
@@ -116,43 +117,29 @@ public class Main {
 	
 	
 	public static void accionesMenuAlumnos(int opcion) throws NumberFormatException, IOException {
-		Scanner sc = new Scanner(System.in);
-		Scanner sci = new Scanner(System.in);
+
 		
 		switch(opcion) {
 			case 1://Agregar alumno
 				opcion = menuAlumnos();
-				Alumno a = new Alumno();
-				String str = "";
-				int in;
+				Alumno auxAlumno = new Alumno();
+				
 				
 				System.out.println("Ingrese el Nombre de la persona:");
-				
-				str=sc.nextLine();
-				a.setNombre(str);
+				auxAlumno.setNombre(bReader.readLine());
 				
 				System.out.println("Ingrese el Primer Apellido de la persona:");
-				
-				str=sc.nextLine();
-				a.setApellido1(str);
+				auxAlumno.setApellido1(bReader.readLine());
 				
 				System.out.println("Ingrese el Segundo Apellido de la persona:");
-				
-				str=sc.nextLine();
-				a.setApellido2(str);
+				auxAlumno.setApellido2(bReader.readLine());
 				
 				System.out.println("Ingrese la Edad de la persona:");
-				
-				in=sci.nextInt();
-				a.setEdad(in);
+				auxAlumno.setEdad(Integer.parseInt(bReader.readLine()));
 				
 				System.out.println("Ingrese el Rut de la persona:");
-				
-				str=sc.nextLine();
-				a.setRut(str);
-				
-				System.out.println(a.AlumnoToString());
-///////////////////////////////////////////////////////////////////////////////////////
+				auxAlumno.setRut(bReader.readLine());
+				//TODO
 				break;
 				
 			case 2://Editar alumno

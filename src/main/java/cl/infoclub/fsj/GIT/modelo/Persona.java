@@ -20,6 +20,8 @@ public class Persona {
 		this.edad = edad;
 		this.rut = rut;
 	}
+	
+	
 
 	public String getNombre() {
 		return nombre;

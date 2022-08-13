@@ -1,5 +1,6 @@
 package cl.infoclub.fsj.GIT.modelo;
 
+import java.io.IOException;
 import java.util.ArrayList;
 
 import cl.infoclub.fsj.GIT.repositorios.AlumnoRepo;
@@ -13,6 +14,9 @@ public class Curso {
 	private AlumnoRepo ar = new AlumnoRepo();
 	private ProfesorRepo pr = new ProfesorRepo();
 	
+	public Curso() {
+		super();
+	}
 	
 	private ArrayList<Profesor> getListaProfesores(){
 		return this.listaProfesores;
@@ -22,9 +26,7 @@ public class Curso {
 		return this.listaAlumnos;
 	}
 	
-	public Curso() {
-		super();
-	}
+
 
 	public void addProfesor(Profesor p) {
 		this.listaProfesores.add(p);
@@ -46,13 +48,31 @@ public class Curso {
 		this.listaProfesores.remove(index);
 	}
 	
-	public void addAlumno(Alumno p) {
-		this.listaAlumnos.add(p);
+	
+	//
+	
+	public String crearAlumno(Alumno alumno) {
+		return ar.crear(alumno, listaAlumnos);
 	}
 	
-	public void actualizarAlumno(int index, Alumno p) {
-		this.listaAlumnos.set(index, p);
+	public String actualizarAlumno(String rut) throws IOException {
+		return ar.actualizarAlumno(rut, listaAlumnos);
 	}
+	 
+	public String eliminarAlumno(String rut) {
+		return ar.eliminarAlumno(rut, listaAlumnos);
+	}
+	
+	public double promedioAlumno(String rut) {
+		for(Alumno alumno: listaAlumnos) {
+			if(alumno.getRut().equals(rut))
+				return ar.promedio(alumno.getListaNotas());
+		}
+		return 0.0;
+	}
+	
+	
+	
 	
 	public void getAlumno(int index) {
 		this.listaAlumnos.get(index);
@@ -62,7 +82,5 @@ public class Curso {
 		return this.listaAlumnos.size();
 	}
 	
-	public void removeAlumno(int index) {
-		this.listaAlumnos.remove(index);
-	}
+
 }

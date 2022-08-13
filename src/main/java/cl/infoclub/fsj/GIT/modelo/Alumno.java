@@ -6,13 +6,21 @@ public class Alumno extends Persona {
 
 	private ArrayList<Double> listaNotas = new ArrayList<>();
 	
+	
+	
 	public Alumno() {
 		super();
 		
 	}
+
+	public Alumno(String nombre, String apellido1, String apellido2, int edad, String rut, ArrayList<Double> listaNotas) {
+		super(nombre, apellido1, apellido2, edad, rut);
+		this.listaNotas = listaNotas;
+	}
+	
 	
 	public ArrayList<Double> getListaNotas() {
-		return this.listaNotas;
+		return listaNotas;
 	}
 
 
@@ -21,7 +29,7 @@ public class Alumno extends Persona {
 				+ getApellido2() + "\n4.- Edad()=" + getEdad() + "\n5.- Rut()=" + getRut();
 	}
 
-
+	
 
 	public void addNota(double notaAdd) {
 		this.listaNotas.add(notaAdd);
