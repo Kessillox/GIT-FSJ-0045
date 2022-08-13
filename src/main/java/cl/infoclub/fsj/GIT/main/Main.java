@@ -3,6 +3,9 @@ package cl.infoclub.fsj.GIT.main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.util.Scanner;
+
+import cl.infoclub.fsj.GIT.modelo.Alumno;
 
 public class Main {
 	
@@ -113,10 +116,43 @@ public class Main {
 	
 	
 	public static void accionesMenuAlumnos(int opcion) throws NumberFormatException, IOException {
+		Scanner sc = new Scanner(System.in);
+		Scanner sci = new Scanner(System.in);
 		
 		switch(opcion) {
 			case 1://Agregar alumno
 				opcion = menuAlumnos();
+				Alumno a = new Alumno();
+				String str = "";
+				int in;
+				
+				System.out.println("Ingrese el Nombre de la persona:");
+				
+				str=sc.nextLine();
+				a.setNombre(str);
+				
+				System.out.println("Ingrese el Primer Apellido de la persona:");
+				
+				str=sc.nextLine();
+				a.setApellido1(str);
+				
+				System.out.println("Ingrese el Segundo Apellido de la persona:");
+				
+				str=sc.nextLine();
+				a.setApellido2(str);
+				
+				System.out.println("Ingrese la Edad de la persona:");
+				
+				in=sci.nextInt();
+				a.setEdad(in);
+				
+				System.out.println("Ingrese el Rut de la persona:");
+				
+				str=sc.nextLine();
+				a.setRut(str);
+				
+				System.out.println(a.AlumnoToString());
+///////////////////////////////////////////////////////////////////////////////////////
 				break;
 				
 			case 2://Editar alumno

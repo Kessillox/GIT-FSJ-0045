@@ -23,8 +23,4 @@ public class Profesor extends Persona {
 				+ getApellido2() + "\n4.- Edad()=" + getEdad() + "\n5.- Rut()=" + getRut()+ "\n6.- asignatura=" + asignatura;
 	}
 	
-	
-	
-	
-	
 }
