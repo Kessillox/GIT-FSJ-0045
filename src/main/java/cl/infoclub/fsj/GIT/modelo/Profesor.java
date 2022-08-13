@@ -17,12 +17,10 @@ public class Profesor extends Persona {
 	public void setAsignatura(String asignatura) {
 		this.asignatura = asignatura;
 	}
-	@Override
-	public String toString() {
-		return "Profesor [asignatura=" + asignatura + ", getNombre()=" + getNombre() + ", getApellido1()="
-				+ getApellido1() + ", getApellido2()=" + getApellido2() + ", getEdad()=" + getEdad() + ", getRut()="
-				+ getRut() + ", toString()=" + super.toString() + ", getClass()=" + getClass() + ", hashCode()="
-				+ hashCode() + "]";
+
+	public String profesorToString() {
+		return "Alumno:\n1.- Nombre =" + getNombre() + "\n2.- Apellido1=" + getApellido1() + "\n3.- Apellido2="
+				+ getApellido2() + "\n4.- Edad()=" + getEdad() + "\n5.- Rut()=" + getRut()+ "\n6.- asignatura=" + asignatura;
 	}
 	
 	
