@@ -1,2 +1,3 @@
 Lista de alumnos
 
+Persona [nombre=Oscar, apellido1=xd, apellido2=123, edad=23, rut=dddd]

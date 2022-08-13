@@ -103,7 +103,7 @@ public class AlumnoRepo implements IAlumno {
 		Double sumaNotas=0.0;
 		
 		for(Double nota:notas) {
-			sumaNotas=+nota;
+			sumaNotas+=nota;
 		}
 		return sumaNotas/notas.size();
 	}	
