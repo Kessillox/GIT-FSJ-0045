@@ -11,7 +11,7 @@ public class Alumno extends Persona {
 		
 	}
 	
-	public ArrayList<Double> getListaAlumnos() {
+	public ArrayList<Double> getListaNotas() {
 		return this.listaNotas;
 	}
 
