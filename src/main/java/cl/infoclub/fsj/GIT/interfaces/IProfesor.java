@@ -1,16 +1,17 @@
 package cl.infoclub.fsj.GIT.interfaces;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import cl.infoclub.fsj.GIT.modelo.Profesor;
 
 public interface IProfesor {
 
-	void crearProfesor(Profesor profesor);
+	String crear(Profesor profesor,ArrayList<Profesor> listaProfesor);
 	
-	void listarProfesor();
+	void listarProfesores(ArrayList<Profesor> listaProfesores);
 	
-	boolean actualizarProfesor(String rut)throws IOException ;
+	String actualizar(String rut,ArrayList<Profesor> listaProfesores)throws IOException ;
 	
-	String eliminarProfesor(String rut);
+	String eliminar(String rut, ArrayList<Profesor> listaProfesores);
 }

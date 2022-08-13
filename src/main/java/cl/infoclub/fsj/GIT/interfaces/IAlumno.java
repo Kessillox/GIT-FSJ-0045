@@ -9,8 +9,12 @@ public interface IAlumno {
 
 	String crear (Alumno al,ArrayList<Alumno> alumnos);
 	
-	String eliminarAlumno(String rut, ArrayList<Alumno> alumnos);
+	String eliminar(String rut, ArrayList<Alumno> alumnos);
 	
-	String actualizarAlumno(String rut, ArrayList<Alumno> alumnos) throws IOException ;
+	String actualizar(String rut, ArrayList<Alumno> alumnos) throws IOException ;
+	
+	void listarAlumnos(ArrayList<Alumno> alumnos);
+
+	double promedio(ArrayList<Double> notas );
 	
 }

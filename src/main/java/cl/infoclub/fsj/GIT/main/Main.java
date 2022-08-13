@@ -3,17 +3,17 @@ package cl.infoclub.fsj.GIT.main;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.util.Scanner;
 
 import cl.infoclub.fsj.GIT.modelo.Alumno;
 import cl.infoclub.fsj.GIT.modelo.Curso;
+import cl.infoclub.fsj.GIT.modelo.Profesor;
 
 public class Main {
 	
 	static BufferedReader bReader = new BufferedReader(new InputStreamReader(System.in));
 	static int opcion;
-	static Curso curso;
-	
+	static Curso curso = new Curso();
+	static String auxRut = new String();
 	
 	public static void main(String[] args) throws NumberFormatException, IOException {
 		
@@ -33,13 +33,12 @@ public class Main {
 			System.out.println("2) Ingresar al menu de profesores.");
 			System.out.println("3) Listar a todos los registrados.");
 			System.out.println("4) Exportar lista de todos los registrados.");
-			System.out.println("5) Importar lista nueva.");
-			System.out.println("6) Salir.");
+			System.out.println("5) Salir.");
 			
 			opcion = Integer.parseInt(bReader.readLine());
 			
-			if(opcion >6 || opcion < 0)System.out.println("Ingrese un numero valido para seleccionar la operacion.");
-		}while(opcion >6 || opcion < 0);
+			if(opcion >5 || opcion < 0)System.out.println("Ingrese un numero valido para seleccionar la operacion.");
+		}while(opcion >5 || opcion < 0);
 		
 		return opcion;
 	}
@@ -52,7 +51,7 @@ public class Main {
 			System.out.println("3) Eliminar un alumno.");
 			System.out.println("4) Listar a los alumnos.");
 			System.out.println("5) Exportar lista alumnos.");
-			System.out.println("6) Importar lista alumnos");
+			System.out.println("6) Agregar nota a alumno.");
 			System.out.println("7) Mostrar promedio de los alumnos.");
 			System.out.println("8) Atras.");
 			String op=bReader.readLine();
@@ -71,10 +70,9 @@ public class Main {
 			System.out.println("3) Eliminar un profesor.");
 			System.out.println("4) Listar a los profesores.");
 			System.out.println("5) Exportar lista profesores.");
-			System.out.println("6) Importar lista profresores.");
 			System.out.println("7) Atras.");
 			opcion = Integer.parseInt(bReader.readLine());
-			if(opcion >8 || opcion < 0)System.out.println("Ingrese un numero valido para seleccionar la operacion.");
+			if(opcion >7 || opcion < 0)System.out.println("Ingrese un numero valido para seleccionar la operacion.");
 		}while(opcion >7 || opcion < 0);
 		return opcion;
 	}
@@ -98,18 +96,18 @@ public class Main {
 			//Listar a todos los registrados
 			case 3:
 				System.out.println("Lista de todas las personas en el registro:\n");
+				curso.listarAlumnos();
+				curso.listarProfesores();
 				break;
 				
 			//Exportar lista	
 			case 4:
-				System.out.println("Su lista ha sido exportada con éxito.");
+				curso.exportarAlumnos();
+				curso.exportarProfesores();
 				break;
-			//Importar lista	
-			case 5:
-				System.out.println("Su lista ha sido importada con éxito. ");
-				break;
+
 			//Salir	
-			case 6:
+			case 5:
 				System.out.println("Usted ha salido del programa.");
 				break;
 		}
@@ -117,13 +115,9 @@ public class Main {
 	
 	
 	public static void accionesMenuAlumnos(int opcion) throws NumberFormatException, IOException {
-
-		
 		switch(opcion) {
 			case 1://Agregar alumno
-				opcion = menuAlumnos();
 				Alumno auxAlumno = new Alumno();
-				
 				
 				System.out.println("Ingrese el Nombre de la persona:");
 				auxAlumno.setNombre(bReader.readLine());
@@ -139,33 +133,54 @@ public class Main {
 				
 				System.out.println("Ingrese el Rut de la persona:");
 				auxAlumno.setRut(bReader.readLine());
-				//TODO
+				
+				System.out.println(curso.crearAlumno(auxAlumno)); 
+				opcion = menuAlumnos();
+				accionesMenuAlumnos(opcion);
 				break;
 				
 			case 2://Editar alumno
+				System.out.println("Ingrese el rut del alumno a editar:");
+				auxRut = bReader.readLine();
+				System.out.println(curso.actualizarAlumno(auxRut));
 				opcion = menuAlumnos();
+				accionesMenuAlumnos(opcion);
 				break;
 				
 			case 3://Eliminar alumno
+				System.out.println("Ingrese el rut del alumno a eliminar:");
+				auxRut = bReader.readLine();
+				System.out.println(curso.eliminarAlumno(auxRut));
 				opcion = menuAlumnos();
+				accionesMenuAlumnos(opcion);
 				break;
 				
 			case 4://Listar alumnos
+				curso.listarAlumnos();
 				opcion = menuAlumnos();
+				accionesMenuAlumnos(opcion);
 				break;
 				
 			case 5://Exportar alumnos
-				System.out.println("Su lista ha sido exportada con éxito.");
+				curso.exportarAlumnos();
 				opcion = menuAlumnos();
+				accionesMenuAlumnos(opcion);
 				break;
 				
-			case 6://Importar alumnos
-				System.out.println("Su lista ha sido importada con éxito. ");
+			case 6://Agregar nota a alumno
+				System.out.println("Ingrese el rut del alumno: ");
+				String auxRut = bReader.readLine();
+				System.out.println("Ingrese la nota a agregar: ");
+				String auxNota = bReader.readLine();
+				System.out.println( curso.agregarNota(auxRut, Double.parseDouble(auxNota)) );
 				opcion = menuAlumnos();
-				break;	
-				
+				accionesMenuAlumnos(opcion);
+				break;
+					
 			case 7://Promedio alumnos
+				System.out.println("El promedio del curso es: " + curso.promedioCurso() );
 				opcion = menuAlumnos();
+				accionesMenuAlumnos(opcion);
 				break;
 				
 			case 8://Atras
@@ -174,35 +189,64 @@ public class Main {
 		}
 	}
 	
+	
 	public static void accionesMenuProfesores(int opcion) throws NumberFormatException, IOException {
 		switch(opcion) {
 			case 1://Agregar profesor
+				Profesor auxProfesor = new Profesor();
+				
+				System.out.println("Ingrese el Nombre de la persona:");
+				auxProfesor.setNombre(bReader.readLine());
+				
+				System.out.println("Ingrese el Primer Apellido de la persona:");
+				auxProfesor.setApellido1(bReader.readLine());
+				
+				System.out.println("Ingrese el Segundo Apellido de la persona:");
+				auxProfesor.setApellido2(bReader.readLine());
+				
+				System.out.println("Ingrese la Edad de la persona:");
+				auxProfesor.setEdad(Integer.parseInt(bReader.readLine()));
+				
+				System.out.println("Ingrese el Rut de la persona:");
+				auxProfesor.setRut(bReader.readLine());
+				
+				System.out.println("Ingrese la asignatura:");
+				auxProfesor.setAsignatura(bReader.readLine());
+				
+				System.out.println(curso.crearProfesor(auxProfesor)); 
 				opcion = menuProfesores();
+				accionesMenuProfesores(opcion);
 				break;
 				
 			case 2://Editar profesor
+				System.out.println("Ingrese el rut del profesor a editar:");
+				auxRut = bReader.readLine();
+				System.out.println(curso.actualizarProfesor(auxRut));
 				opcion = menuProfesores();
+				accionesMenuProfesores(opcion);
 				break;
 				
 			case 3://Eliminar profesor
+				System.out.println("Ingrese el rut del profesor a eliminar:");
+				auxRut = bReader.readLine();
+				System.out.println(curso.eliminarProfesor(auxRut));
 				opcion = menuProfesores();
+				accionesMenuProfesores(opcion);
 				break;
 				
 			case 4://Listar profesores
+				curso.listarProfesores();
 				opcion = menuProfesores();
+				accionesMenuProfesores(opcion);
 				break;
 				
 			case 5://Exportar profesores
-				System.out.println("Su lista ha sido exportada con éxito.");
+				curso.exportarProfesores();
 				opcion = menuProfesores();
+				accionesMenuProfesores(opcion);
 				break;
-				
-			case 6://Importar profesores
-				System.out.println("Su lista ha sido importada con éxito. ");
-				opcion = menuProfesores();
-				break;
-				
-			case 7://Atras
+
+			case 6://Atras
 				opcion = 0;
 				break;
 				

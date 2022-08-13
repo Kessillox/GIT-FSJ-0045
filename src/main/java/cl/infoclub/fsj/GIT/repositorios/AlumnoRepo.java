@@ -1,20 +1,21 @@
 package cl.infoclub.fsj.GIT.repositorios;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
-import java.io.File;
-import java.io.FileWriter;
+
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
-import java.util.Scanner;
 import cl.infoclub.fsj.GIT.interfaces.IAlumno;
 import cl.infoclub.fsj.GIT.modelo.Alumno;
 
 public class AlumnoRepo implements IAlumno {
 	
-	public String crear (Alumno al,ArrayList<Alumno> alumnos) {
-		for(Alumno auxAlumno:alumnos) {//TODO
+	
+	
+	
+	
+	public String crear(Alumno al,ArrayList<Alumno> alumnos) {
+		for(Alumno auxAlumno:alumnos) {
 			if(auxAlumno.getRut().equals(al.getRut())) {
 				return "No se pudo crear alumno porque ya existe";	
 			}
@@ -23,20 +24,23 @@ public class AlumnoRepo implements IAlumno {
 		return "Se agrego al alumno exitosamente";	
 	}
 	
-	public void listarAlumno(ArrayList<Alumno> alumnos) {
+	
+	public void listarAlumnos(ArrayList<Alumno> alumnos) {
 		System.out.println("La lista de alumnos es: \n");
 		for (Alumno auxAlumno:alumnos) {
-				System.out.println(auxAlumno.toString());
+				System.out.println(auxAlumno.alumnoToString());
+				System.out.println(listarNotas(auxAlumno.getListaNotas()));
+				System.out.println("Promedio: "+promedio(auxAlumno.getListaNotas()));
 		}
 		
 	}
 	///*edit actualizar*/
-	public String actualizarAlumno(String rut, ArrayList<Alumno> alumnos) throws IOException {
+	public String actualizar(String rut, ArrayList<Alumno> alumnos) throws IOException {
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
 		
 		for(Alumno alumno: alumnos) {
 			if(alumno.getRut().equals(rut)) {
-				System.out.println("\nSe ha encontrado el alumno.\nEsta es la informacion del alumno." + alumno.toString() );
+				System.out.println("\nSe ha encontrado el alumno.\nEsta es la informacion del alumno." + alumno.alumnoToString() );
 				System.out.println("\nSeleccione la opcion a editar.");
 			
 				String opcion = new String(bufferedReader.readLine());
@@ -62,17 +66,18 @@ public class AlumnoRepo implements IAlumno {
 						System.out.println("Ingrese el nuevo rut: ");
 						alumno.setRut(bufferedReader.readLine());
 						break;	
+					}
+					System.out.println("El nuevo alumno es:" +alumno.toString()) ;
+					return "Se ha modificado con exito los datos del alumno";
 				}
-				System.out.println("El nuevo alumno es:" +alumno.toString()) ;
-					
-				}
-				return "Se ha modificado con exito los datos del alumno";
+				
 		}
 		System.out.println("No se ha encontrado el alumno.\n");
 		return "No se pudo modificar el Alumno";
 	}/*fin actualizar*/
 	
-	public String eliminarAlumno(String rut, ArrayList<Alumno> alumnos) {
+	
+	public String eliminar(String rut, ArrayList<Alumno> alumnos) {
 		
 				
 		 for (Alumno auxAlumno: alumnos) {
@@ -84,6 +89,16 @@ public class AlumnoRepo implements IAlumno {
 		return "No se elimino al Alumno por no encontrarse en la lista";
 		
 	}
+	
+	public String agregarNota(ArrayList<Double> notas, double nota) {
+		notas.add(nota);
+		return "Se ha agregado la nota exitosamente.";
+	}
+	
+	public String listarNotas(ArrayList<Double> notas) {
+		return notas.toString();
+	}
+	
 	public double promedio(ArrayList<Double> notas ) {
 		Double sumaNotas=0.0;
 		

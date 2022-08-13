@@ -4,13 +4,11 @@ public class Profesor extends Persona {
 
 	private String asignatura;
 
-	public Profesor(String asignatura) {
-		super();
-		this.asignatura = asignatura;
-	}
 	public Profesor() {
 		super();
+		asignatura = new String();
 	}
+
 	public String getAsignatura() {
 		return asignatura;
 	}
@@ -19,8 +17,8 @@ public class Profesor extends Persona {
 	}
 
 	public String profesorToString() {
-		return "Alumno:\n1.- Nombre =" + getNombre() + "\n2.- Apellido1=" + getApellido1() + "\n3.- Apellido2="
-				+ getApellido2() + "\n4.- Edad()=" + getEdad() + "\n5.- Rut()=" + getRut()+ "\n6.- asignatura=" + asignatura;
+		return "Profesor:\n1.- Nombre: " + getNombre() + "\n2.- Primer Apellido: " + getApellido1() + "\n3.- Segundo Apellido: "
+				+ getApellido2() + "\n4.- Edad: " + getEdad() + "\n5.- Rut: " + getRut()+ "\n6.- Asignatura: " + asignatura;
 	}
 	
 }

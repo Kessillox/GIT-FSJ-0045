@@ -24,9 +24,9 @@ public class Alumno extends Persona {
 	}
 
 
-	public String AlumnoToString() {
-		return "Alumno:\n1.- Nombre =" + getNombre() + "\n2.- Apellido1=" + getApellido1() + "\n3.- Apellido2="
-				+ getApellido2() + "\n4.- Edad()=" + getEdad() + "\n5.- Rut()=" + getRut();
+	public String alumnoToString() {
+		return "Alumno:\n1.- Nombre: " + getNombre() + "\n2.- Primer Apellido: " + getApellido1() + "\n3.- Segundo Apellido: "
+				+ getApellido2() + "\n4.- Edad: " + getEdad() + "\n5.- Rut: " + getRut();
 	}
 
 	

@@ -6,79 +6,84 @@ import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 import cl.infoclub.fsj.GIT.interfaces.IProfesor;
-import cl.infoclub.fsj.GIT.modelo.Alumno;
 import cl.infoclub.fsj.GIT.modelo.Profesor;
 
 public class ProfesorRepo implements IProfesor {
 	
-ArrayList<Profesor> profesoresLista = new ArrayList<Profesor>();
 	
-	public ArrayList<Profesor> getProfesor() {
-		return profesoresLista;
+	public ProfesorRepo() {
+		super();
 	}
 
-	public void setProfesor(ArrayList<Profesor> profesor) {
-		this.profesoresLista = profesor;
-	}
 
-	public void crearProfesor(Profesor pr) {
-		this.profesoresLista.add(pr);
-		
+	public String crear(Profesor profe, ArrayList<Profesor> listaProfesores) {
+		for (Profesor auxProfesor:listaProfesores) {
+			if(auxProfesor.getRut().equals(profe.getRut()))
+				return "No se pudo crear profesor porque ya existe";
+		}
+		listaProfesores.add(profe);
+		return "Profesor Creado";
 	}
 	
-	public void listarProfesor() {
-		for (int i= 0;i<profesoresLista.size();i++) {
-				System.out.println(getProfesor().get(i));
-			
+	
+	
+	public void listarProfesores(ArrayList<Profesor> listaProfesores) {
+		System.out.println("Los profesores de la escuela son: \n");	
+		for(Profesor auxProfesor:listaProfesores) {
+			System.out.println(auxProfesor.profesorToString());
 		}
 	}
 	
-	/*edit actualizar*/
-	@SuppressWarnings("unlikely-arg-type")
-	public boolean actualizarProfesor(String rut) throws IOException {
+	public String actualizar(String rut,ArrayList<Profesor> listaProfesores) throws IOException {
 		BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(System.in));
-
-		for(Profesor profesor: profesoresLista) {
-			if(profesor.getRut().equals(bufferedReader)) {
-				System.out.println("\nSe ha encontrado el profesor.\nEsta es la informacion del profesor." + profesor.toString() );
+		
+		for(Profesor profe: listaProfesores) {
+			if(profe.getRut().equals(rut)) {
+				System.out.println("\nSe ha encontrado el profesor.\nEsta es la informacion del profesor." + profe.profesorToString() );
 				System.out.println("\nSeleccione la opcion a editar.");
-			
+				
 				String opcion = new String(bufferedReader.readLine());
 				switch(opcion){
 					case "1":
 						System.out.println("Ingrese el nuevo nombre: ");
-						profesor.setNombre(bufferedReader.readLine());
+						profe.setNombre(bufferedReader.readLine());
 						break;
 					case "2":
 						System.out.println("Ingrese el nuevo apellido 1: ");
-						profesor.setApellido1(bufferedReader.readLine());
+						profe.setApellido1(bufferedReader.readLine());
 						break;
 					case "3":
 						System.out.println("Ingrese el nuevo apellido 2: ");
-						profesor.setApellido2(bufferedReader.readLine());
+						profe.setApellido2(bufferedReader.readLine());
 						break;
 					case "4":
-						System.out.println("Ingrese la nueva asignatura: ");
-						profesor.setAsignatura(bufferedReader.readLine());
+						System.out.println("Ingrese la nueva edad: ");
+						String auxEdad =  bufferedReader.readLine();
+						profe.setEdad(Integer.parseInt(auxEdad));
+						break;	
+					case "5":
+						System.out.println("Ingrese el nuevo rut: ");
+						profe.setRut(bufferedReader.readLine());
 						break;	
 				}
-				//System.out.println("el nuevo alumno es:\n"+ alumno.toString());
-				System.out.println("El nuevo profesor es:" +profesor.toString()) ;
-					
-				}
-				return true;
+				System.out.println("El nuevo profesor es:" +profe.profesorToString() +"\n") ;
+				return "Se ha modificado con exito los datos del profesor";
+
+			}
+		
 		}
-		System.out.println("No se ha encontrado el alumno.\n");
-		return false;
-	}/*fin actualizar*/
-	public String eliminarProfesor(String rut) {
-		for (Profesor auxProfesor:profesoresLista ) {
+		return "No se ha modificado el profesor debido a que no existe en el registro.";
+	}
+	
+	
+	public String eliminar(String rut, ArrayList<Profesor> listaProfesores) {
+		for (Profesor auxProfesor:listaProfesores ) {
 			if (rut.equals(auxProfesor.getRut())) {
-				profesoresLista.remove(auxProfesor);
+				listaProfesores.remove(auxProfesor);
 				return "Profesor Eliminado con exito";
 			}
-	}
-	return "No se elimino al Profesor por no encontrarse en la lista";
+		}
+		return "No se elimino al Profesor por no encontrarse en la lista";
 	}
 }
 	
