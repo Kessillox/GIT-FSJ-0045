@@ -8,12 +8,21 @@ public class Alumno extends Persona {
 	
 	public Alumno() {
 		super();
+		
 	}
 	
-	public ArrayList<Double> getListaNotas(){
+	public ArrayList<Double> getListaNotas() {
 		return this.listaNotas;
 	}
-	
+
+
+	public String AlumnoToString() {
+		return "Alumno:\n1.- Nombre =" + getNombre() + "\n2.- Apellido1=" + getApellido1() + "\n3.- Apellido2="
+				+ getApellido2() + "\n4.- Edad()=" + getEdad() + "\n5.- Rut()=" + getRut();
+	}
+
+
+
 	public void addNota(double notaAdd) {
 		this.listaNotas.add(notaAdd);
 	}

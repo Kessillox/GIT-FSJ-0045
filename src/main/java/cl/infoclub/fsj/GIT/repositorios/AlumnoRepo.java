@@ -11,7 +11,7 @@ import java.util.Scanner;
 import cl.infoclub.fsj.GIT.interfaces.IAlumno;
 import cl.infoclub.fsj.GIT.modelo.Alumno;
 
-public abstract class AlumnoRepo implements IAlumno {
+public class AlumnoRepo implements IAlumno {
 
 	//ArrayList<Alumno> alumnosLista = new ArrayList<Alumno>();
 	Alumno alumnos = new Alumno();

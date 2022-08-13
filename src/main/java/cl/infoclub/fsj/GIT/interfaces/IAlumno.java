@@ -1,14 +1,16 @@
 package cl.infoclub.fsj.GIT.interfaces;
 
+import java.io.IOException;
+import java.util.ArrayList;
+
 import cl.infoclub.fsj.GIT.modelo.Alumno;
 
 public interface IAlumno {
 
-	void crear(Alumno alumno);
+	String crear (Alumno al,ArrayList<Alumno> alumnos);
 	
-	void listarAlumnos();
+	String eliminarAlumno(String rut, ArrayList<Alumno> alumnos);
 	
-	void actualizar(Alumno alumno);
+	String actualizarAlumno(String rut, ArrayList<Alumno> alumnos) throws IOException ;
 	
-	void eliminar(Alumno alumno);
 }

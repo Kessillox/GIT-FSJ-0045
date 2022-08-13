@@ -2,11 +2,25 @@ package cl.infoclub.fsj.GIT.modelo;
 
 import java.util.ArrayList;
 
+import cl.infoclub.fsj.GIT.repositorios.AlumnoRepo;
+import cl.infoclub.fsj.GIT.repositorios.ProfesorRepo;
+
+
 public class Curso {
 	private ArrayList<Profesor> listaProfesores = new ArrayList<>();
 	private ArrayList<Alumno> listaAlumnos = new ArrayList<>();
 	
+	private AlumnoRepo ar = new AlumnoRepo();
+	private ProfesorRepo pr = new ProfesorRepo();
 	
+	
+	private ArrayList<Profesor> getListaProfesores(){
+		return this.listaProfesores;
+	}
+	
+	private ArrayList<Alumno> getListaAlumnos(){
+		return this.listaAlumnos;
+	}
 	
 	public Curso() {
 		super();
@@ -51,6 +65,4 @@ public class Curso {
 	public void removeAlumno(int index) {
 		this.listaAlumnos.remove(index);
 	}
-	
-	
 }

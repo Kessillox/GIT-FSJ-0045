@@ -9,7 +9,7 @@ import cl.infoclub.fsj.GIT.interfaces.IProfesor;
 import cl.infoclub.fsj.GIT.modelo.Alumno;
 import cl.infoclub.fsj.GIT.modelo.Profesor;
 
-public abstract class ProfesorRepo implements IProfesor {
+public class ProfesorRepo implements IProfesor {
 	
 ArrayList<Profesor> profesoresLista = new ArrayList<Profesor>();
 	
